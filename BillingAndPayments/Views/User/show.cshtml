@@ -1,0 +1,63 @@
+﻿@model List<Usermanagement_module.Repository.UserManagement>;
+@{
+    ViewData["Title"] = "show";
+}
+
+<h1>show</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Username
+            </th>
+            <th>
+                Password
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Created At
+            </th>
+            <th>
+                Last Login
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    item.userName
+                </td>
+                <td>
+                    item.password
+                </td>
+                <td>
+                    item.email
+                </td>
+                <td>
+                    item.status
+                </td>
+                <td>
+                    item.createdAt
+                </td>
+                <td>
+                    item.LastLogin
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.userId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.userId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.userId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
